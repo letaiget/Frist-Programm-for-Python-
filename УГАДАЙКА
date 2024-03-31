@@ -1,0 +1,36 @@
+import random
+
+def game_random():
+    slova = ["Страус", "Кенгуру", "Осел", "Машина", "Овощь", "Арбуз", "Яблоко", "Вишня", "Пунтал", "Код", "Питон", "Программа", "Собака", "Кошка", "Приват", "Тест", "Сокол", "Китаец", "Зяблик"]
+    slova_random = random.choice(slova)
+    chislo_slova = len(slova_random)
+    popitka = False
+    while not popitka:
+        popitka_vvod = int(input('Введите кол-во символов:'))
+        if popitka_vvod == chislo_slova:
+            print("Вы победили!\nЗАГАДАННОЕ СЛОВО:", slova_random)
+            popitka = True
+            da = int(input('Хотите сыграть ещё раз?'))
+            if da == 1:
+                game_random()
+            else:
+                print("Сожалеем о Вашем выходе...")
+                exit()
+            break
+        elif popitka_vvod < chislo_slova:
+            print("Неправильно, думайте еще!")
+            print("В слове больше букв!")
+        else:
+            print("Неправильно, думайте еще!")
+            print("В слове меньше букв!")
+
+start_game = int(input('Введите 1 если играть будем\nВведите 2 если играть не будем'))
+if start_game == 1:
+    print("Приветствую в игре Угадайка")
+    print("В игре необходимо угадать кол-во символов в слове.")
+    game_random()
+elif start_game == 2:
+    print("ПОКА-ПОКА")
+    exit()
+else: 
+    print("Введите ИЛИ 1 ИЛИ 2!!!")
